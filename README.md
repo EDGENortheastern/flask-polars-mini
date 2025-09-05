@@ -7,6 +7,6 @@ A very small demo app using **Flask** (for the backend) and **Polars** (for data
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
+git clone git@github.com:EDGENortheastern/flask-polars-mini.git
+cd flask-polars-mini
 ```

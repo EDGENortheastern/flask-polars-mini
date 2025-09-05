@@ -38,7 +38,7 @@ def upload_file():
         fig = go.Figure(data=[go.Box(x=values)])
         fig.update_layout(title=f"Histogram of {col}", xaxis_title=col, yaxis_title="Count")
         graph_html = fig.to_html(full_html=False, include_plotlyjs="cdn")
-        graph_title = f"Histogram of {col}"
+        graph_title = f"Boxplot of {col}"
 
     return render_template(
         "summary.html",
