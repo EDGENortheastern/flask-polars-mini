@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CSV Summary</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>CSV Summary</h1>
+
+    <div class="meta">
+      <p><strong>Rows:</strong> {{ rows }}</p>
+      <p><strong>Columns:</strong> {{ columns }}</p>
+    </div>
+
+    <h2>Column names</h2>
+    <ul>
+      {% for col in colnames %}
+        <li>{{ col }}</li>
+      {% endfor %}
+    </ul>
+
+    <h2>Preview (first 5 rows)</h2>
+    <table>
+      <thead>
+        <tr>
+          {% for c in preview_cols %}
+            <th>{{ c }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in preview_rows %}
+          <tr>
+            {% for c in preview_cols %}
+              <td>{{ r[c] }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    {% if graph_html %}
+      <h2>Histogram</h2>
+      {{ graph_html|safe }}
+    {% endif %}
+
+    <p><a href="/upload">Upload another file</a></p>
+  </div>
+</body>
+</html>
